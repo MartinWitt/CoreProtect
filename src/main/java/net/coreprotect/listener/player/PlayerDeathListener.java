@@ -34,7 +34,7 @@ public final class PlayerDeathListener extends Queue implements Listener {
 
         String user = ((Player) entity).getName();
         List<ItemStack> items = event.getDrops();
-        if (items == null || items.size() == 0) {
+        if (items == null || items.isEmpty() ) {
             return;
         }
 

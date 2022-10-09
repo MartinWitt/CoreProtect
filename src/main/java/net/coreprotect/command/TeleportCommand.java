@@ -87,7 +87,7 @@ public class TeleportCommand {
         String yValidate = y.replaceAll("[^.\\-]", "");
         String zValidate = z.replaceAll("[^.\\-]", "");
 
-        if ((x.length() == 0 || x.length() >= 12 || x.equals(xValidate)) || (y.length() == 0 || y.length() >= 12 || y.equals(yValidate)) || (z.length() == 0 || z.length() >= 12 || z.equals(zValidate))) {
+        if (x.isEmpty() || x.length() >= 12 || x.equals(xValidate) || (y.isEmpty() || y.length() >= 12 || y.equals(yValidate)) || (z.isEmpty() || z.length() >= 12 || z.equals(zValidate))) {
             Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_PARAMETERS, "/co teleport <world> <x> <y> <z>"));
             return;
         }

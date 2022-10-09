@@ -109,7 +109,7 @@ public class UserStatement {
                 uuid = resultSet.getString("uuid");
             }
 
-            if (user.length() == 0) {
+            if (user.isEmpty()) {
                 return user;
             }
 

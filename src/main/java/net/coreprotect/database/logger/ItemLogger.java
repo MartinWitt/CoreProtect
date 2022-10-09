@@ -120,7 +120,7 @@ public class ItemLogger {
                 if (item != null && item.getAmount() > 0 && !Util.isAir(item.getType())) {
                     // Object[] metadata = new Object[] { slot, item.getItemMeta() };
                     List<List<Map<String, Object>>> data = ItemMetaHandler.seralize(item, null, null, 0);
-                    if (data.size() == 0) {
+                    if (data.isEmpty()) {
                         data = null;
                     }
 

@@ -86,7 +86,7 @@ public class LookupCommand {
             }
             else if (arg instanceof EntityType) {
                 hasEntity = true;
-                if (argAction.size() == 0) {
+                if (argAction.isEmpty()) {
                     argAction.add(3);
                 }
                 else if (!argAction.contains(3)) {
@@ -103,7 +103,7 @@ public class LookupCommand {
             }
             else if (arg instanceof EntityType) {
                 hasEntity = true;
-                if (argAction.size() == 0) {
+                if (argAction.isEmpty()) {
                     argAction.add(3);
                 }
                 else if (!argAction.contains(3)) {
@@ -203,7 +203,7 @@ public class LookupCommand {
             allPermission = true;
         }
         if (!allPermission) {
-            if (!pageLookup && (argAction.size() == 0 || (argAction.size() == 1 && (argAction.contains(0) || argAction.contains(1)))) && !player.hasPermission("coreprotect.lookup.block")) {
+            if (!pageLookup && (argAction.isEmpty() || (argAction.size() == 1 && (argAction.contains(0) || argAction.contains(1)))) && !player.hasPermission("coreprotect.lookup.block")) {
                 Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.NO_PERMISSION));
                 return;
             }
@@ -269,7 +269,7 @@ public class LookupCommand {
         }
 
         if (argAction.contains(4) && argAction.contains(11)) { // a:inventory
-            if (argUsers.size() == 0) {
+            if (argUsers.isEmpty()) {
                 Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_ACTION_USER));
                 return;
             }
@@ -555,7 +555,7 @@ public class LookupCommand {
                 }
             }
 
-            if (g == 1 && (pageLookup || argBlocks.size() > 0 || argUsers.size() > 0 || (argUsers.size() == 0 && argRadius != null))) {
+            if (g == 1 && (pageLookup || argBlocks.size() > 0 || argUsers.size() > 0 || argUsers.isEmpty() && argRadius != null)) {
                 Integer MAX_RADIUS = Config.getGlobal().MAX_RADIUS;
                 if (argRadius != null) {
                     int radiusValue = argRadius[0];
@@ -566,7 +566,7 @@ public class LookupCommand {
                     }
                 }
 
-                if (argUsers.size() == 0) {
+                if (argUsers.isEmpty()) {
                     argUsers.add("#global");
                 }
                 List<String> rollbackusers = argUsers;
@@ -1060,7 +1060,7 @@ public class LookupCommand {
                                                         PluginChannelListener.getInstance().sendData(player2, Integer.parseInt(time), phrase, selector, dplayer, dname, (tag.contains("+") ? 1 : -1), x, y, z, wid, rbd, false, tag.contains("+"));
                                                     }
 
-                                                    action = (finalArgAction.size() == 0 ? " (" + action + ")" : "");
+                                                    action = (finalArgAction.isEmpty()) ? " (" + action + ")" : "";
                                                     Chat.sendComponent(player2, Color.WHITE + leftPadding + Color.GREY + "^ " + Util.getCoordinates(command.getName(), wid, x, y, z, true, true) + Color.GREY + Color.ITALIC + action);
                                                 }
                                             }
@@ -1105,11 +1105,11 @@ public class LookupCommand {
             }
             else {
                 // Functions.sendMessage(player, ChatColors.RED + "You did not specify a lookup radius.");
-                if (argUsers.size() == 0 && argBlocks.size() == 0 && (argWid > 0 || forceglobal)) {
+                if (argUsers.isEmpty() && argBlocks.isEmpty()  && (argWid > 0 || forceglobal)) {
                     Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_LOOKUP_USER, Selector.FIRST));
                     return;
                 }
-                else if (argUsers.size() == 0 && argBlocks.size() == 0 && argRadius == null) {
+                else if (argUsers.isEmpty() && argBlocks.isEmpty()  && argRadius == null) {
                     Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_LOOKUP_USER, Selector.SECOND));
                     return;
                 }

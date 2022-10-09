@@ -239,7 +239,7 @@ public class Lookup extends Queue {
                     int resultWorldId = results.getInt("wid");
 
                     boolean hasTbl = false;
-                    if ((lookup && actionList.size() == 0) || actionList.contains(4) || actionList.contains(5) || actionList.contains(11)) {
+                    if (lookup && actionList.isEmpty()  || actionList.contains(4) || actionList.contains(5) || actionList.contains(11)) {
                         resultData = results.getInt("data");
                         resultAmount = results.getInt("amount");
                         resultMeta = results.getBytes("metadata");
@@ -327,7 +327,7 @@ public class Lookup extends Queue {
                 String list = "";
 
                 for (String value : checkUuids) {
-                    if (list.length() == 0) {
+                    if (list.isEmpty()) {
                         list = "'" + value + "'";
                     }
                     else {
@@ -454,7 +454,7 @@ public class Lookup extends Queue {
             }
 
             // Specify actions to exclude from a:item
-            if ((lookup && actionList.size() == 0) || (actionList.contains(11) && actionList.size() == 1)) {
+            if (lookup && actionList.isEmpty()  || (actionList.contains(11) && actionList.size() == 1)) {
                 StringBuilder actionText = new StringBuilder();
                 actionText = actionText.append(ItemLogger.ITEM_BREAK);
                 actionText.append(",").append(ItemLogger.ITEM_DESTROY);
@@ -599,7 +599,7 @@ public class Lookup extends Queue {
                 queryBlock = queryBlock.substring(0, queryBlock.length() - 4);
             }
 
-            if (queryBlock.length() == 0) {
+            if (queryBlock.isEmpty()) {
                 queryBlock = " 1";
             }
 
@@ -696,7 +696,7 @@ public class Lookup extends Queue {
             }
 
             boolean itemLookup = inventoryQuery;
-            if ((lookup && actionList.size() == 0) || (itemLookup && !actionList.contains(0))) {
+            if (lookup && actionList.isEmpty()  || (itemLookup && !actionList.contains(0))) {
                 if (!count) {
                     rows = "rowid as id,time,user,wid,x,y,z,type,meta as metadata,data,-1 as amount,action,rolled_back";
                 }
@@ -740,7 +740,7 @@ public class Lookup extends Queue {
                 query = query + unionSelect + "SELECT " + "'2' as tbl," + rows + " FROM " + ConfigHandler.prefix + "item WHERE" + queryBlock + unionLimit + ")";
             }
 
-            if (query.length() == 0) {
+            if (query.isEmpty()) {
                 if (actionExclude.length() > 0) {
                     baseQuery = baseQuery.replace("action NOT IN(-1)", "action NOT IN(" + actionExclude + ")");
                 }

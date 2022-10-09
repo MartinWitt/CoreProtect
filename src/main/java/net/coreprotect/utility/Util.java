@@ -1045,7 +1045,7 @@ public class Util extends Queue {
                 if (worldEditVersion.length >= 2) {
                     worldEditVersion[0] = worldEditVersion[0].replaceAll("[^0-9]", "");
                     worldEditVersion[1] = worldEditVersion[1].replaceAll("[^0-9]", "");
-                    if (worldEditVersion[0].length() == 0 || worldEditVersion[1].length() == 0 || Util.newVersion(worldEditVersion[0] + "." + worldEditVersion[1], "7.1")) {
+                    if (worldEditVersion[0].isEmpty() || worldEditVersion[1].isEmpty()  || Util.newVersion(worldEditVersion[0] + "." + worldEditVersion[1], "7.1")) {
                         validVersion = false;
                     }
                 }

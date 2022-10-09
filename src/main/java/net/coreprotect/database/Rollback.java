@@ -131,7 +131,7 @@ public class Rollback extends Queue {
             }
 
             List<Object[]> itemList = new ArrayList<>();
-            if (Config.getGlobal().ROLLBACK_ITEMS && !checkUsers.contains("#container") && (actionList.size() == 0 || actionList.contains(4) || ROLLBACK_ITEMS) && preview == 0) {
+            if (Config.getGlobal().ROLLBACK_ITEMS && !checkUsers.contains("#container") && (actionList.isEmpty() || actionList.contains(4) || ROLLBACK_ITEMS) && preview == 0) {
                 List<Integer> itemActionList = new ArrayList<>(actionList);
 
                 if (!itemActionList.contains(4)) {
@@ -391,7 +391,7 @@ public class Rollback extends Queue {
                             if (preview > 0) {
                                 if (rowAction != 3) { // entity kill
                                     String world = Util.getWorldName(rowWorldId);
-                                    if (world.length() == 0) {
+                                    if (world.isEmpty()) {
                                         continue;
                                     }
 
@@ -421,7 +421,7 @@ public class Rollback extends Queue {
                             }
                             else if (rowAction == 3) { // entity kill
                                 String world = Util.getWorldName(rowWorldId);
-                                if (world.length() == 0) {
+                                if (world.isEmpty()) {
                                     continue;
                                 }
 
@@ -509,7 +509,7 @@ public class Rollback extends Queue {
                                 }
 
                                 String world = Util.getWorldName(rowWorldId);
-                                if (world.length() == 0) {
+                                if (world.isEmpty()) {
                                     continue;
                                 }
 
@@ -1128,7 +1128,7 @@ public class Rollback extends Queue {
                                     if (!containerInit || rowX != lastX || rowY != lastY || rowZ != lastZ || rowWorldId != lastWorldId || !faceData.equals(lastFace)) {
                                         container = null; // container patch 2.14.0
                                         String world = Util.getWorldName(rowWorldId);
-                                        if (world.length() == 0) {
+                                        if (world.isEmpty()) {
                                             continue;
                                         }
 
@@ -1648,7 +1648,7 @@ public class Rollback extends Queue {
                                 modifiedArmor = addedItem ? setArmor : modifiedArmor;
                             }
                             if (!addedItem) {
-                                addedItem = (inventory.addItem(itemstack).size() == 0);
+                                addedItem = inventory.addItem(itemstack).isEmpty();
                             }
                             if (!addedItem && isPlayerInventory) {
                                 PlayerInventory playerInventory = (PlayerInventory) inventory;
@@ -1825,7 +1825,7 @@ public class Rollback extends Queue {
             int itemCount = 0;
             Builder effectBuilder = FireworkEffect.builder();
             for (List<Map<String, Object>> map : (List<List<Map<String, Object>>>) list) {
-                if (map.size() == 0) {
+                if (map.isEmpty()) {
                     if (itemCount == 3 && (rowType == Material.FIREWORK_ROCKET || rowType == Material.FIREWORK_STAR)) {
                         buildFireworkEffect(effectBuilder, rowType, itemstack);
                         itemCount = 0;

@@ -124,7 +124,7 @@ public class __2_19_0 {
                 }
             }
 
-            if (signList.size() == 0) {
+            if (signList.isEmpty()) {
                 return true;
             }
 
