@@ -40,7 +40,7 @@ public class __2_16_0 {
                 ResultSet resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
                     String id = resultSet.getString("id");
-                    if (idList.length() == 0) {
+                    if (idList.isEmpty()) {
                         idList = id;
                     }
                     else {

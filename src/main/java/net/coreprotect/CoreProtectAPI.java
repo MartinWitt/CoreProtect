@@ -118,7 +118,7 @@ public class CoreProtectAPI extends Queue {
             }
 
             String blockData = parse[12];
-            if (blockData == null || blockData.length() == 0) {
+            if (blockData == null || blockData.isEmpty() ) {
                 return getType().createBlockData();
             }
             return Bukkit.getServer().createBlockData(blockData);
@@ -437,7 +437,7 @@ public class CoreProtectAPI extends Queue {
         }
 
         List<Object> restrictBlocks = new ArrayList<>(restrictBlocksMap.keySet());
-        if (actionList.size() == 0 && restrictBlocks.size() > 0) {
+        if (actionList.isEmpty() && restrictBlocks.size() > 0) {
             boolean addedMaterial = false;
             boolean addedEntity = false;
 
@@ -454,14 +454,14 @@ public class CoreProtectAPI extends Queue {
             }
         }
 
-        if (actionList.size() == 0) {
+        if (actionList.isEmpty()) {
             actionList.add(0);
             actionList.add(1);
         }
 
         actionList.removeIf(actionListItem -> actionListItem > 3);
 
-        if (restrictUsers.size() == 0) {
+        if (restrictUsers.isEmpty()) {
             restrictUsers.add("#global");
         }
 

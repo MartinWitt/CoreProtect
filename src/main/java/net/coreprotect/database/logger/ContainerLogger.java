@@ -168,7 +168,7 @@ public class ContainerLogger extends Queue {
                     if (item.getAmount() > 0 && !Util.isAir(item.getType())) {
                         // Object[] metadata = new Object[] { slot, item.getItemMeta() };
                         List<List<Map<String, Object>>> metadata = ItemMetaHandler.seralize(item, type, faceData, slot);
-                        if (metadata.size() == 0) {
+                        if (metadata.isEmpty()) {
                             metadata = null;
                         }
 

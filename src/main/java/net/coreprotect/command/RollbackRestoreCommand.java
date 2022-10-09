@@ -66,7 +66,7 @@ public class RollbackRestoreCommand {
             }
             else if (arg instanceof EntityType) {
                 hasEntity = true;
-                if (argAction.size() == 0) {
+                if (argAction.isEmpty()) {
                     argAction.add(3);
                 }
                 else if (!argAction.contains(3)) {
@@ -83,7 +83,7 @@ public class RollbackRestoreCommand {
             }
             else if (arg instanceof EntityType) {
                 hasEntity = true;
-                if (argAction.size() == 0) {
+                if (argAction.isEmpty()) {
                     argAction.add(3);
                 }
                 else if (!argAction.contains(3)) {
@@ -171,7 +171,7 @@ public class RollbackRestoreCommand {
                 }
             }
 
-            if (argUsers.size() == 0 && (argWid > 0 || forceglobal) && argRadius == null) {
+            if (argUsers.isEmpty() && (argWid > 0 || forceglobal) && argRadius == null) {
                 if (finalAction == 0) {
                     Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_ROLLBACK_USER, Selector.FIRST));
                 }
@@ -182,7 +182,7 @@ public class RollbackRestoreCommand {
             }
 
             if (argAction.contains(4) && argAction.contains(11)) { // a:inventory
-                if (argUsers.size() == 0) {
+                if (argUsers.isEmpty()) {
                     Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_ACTION_USER));
                     return;
                 }
@@ -196,7 +196,7 @@ public class RollbackRestoreCommand {
                 argExclude.put(Material.TNT, true);
             }
 
-            if (g == 1 && (argUsers.size() > 0 || (argUsers.size() == 0 && argRadius != null))) {
+            if (g == 1 && (argUsers.size() > 0 || argUsers.isEmpty() && argRadius != null)) {
                 Integer MAX_RADIUS = Config.getGlobal().MAX_RADIUS;
                 if (argRadius != null) {
                     int radiusValue = argRadius[0];
@@ -208,7 +208,7 @@ public class RollbackRestoreCommand {
                 }
                 if (argAction.size() > 0) {
                     if (argAction.contains(4)) {
-                        if (argUsers.contains("#global") || (argUsers.size() == 0 && argRadius == null)) {
+                        if (argUsers.contains("#global") || argUsers.isEmpty() && argRadius == null) {
                             Chat.sendMessage(player, Color.DARK_AQUA + "CoreProtect " + Color.WHITE + "- " + Phrase.build(Phrase.MISSING_ACTION_USER));
                             return;
                         }
@@ -228,7 +228,7 @@ public class RollbackRestoreCommand {
                     }
                 }
 
-                if (argUsers.size() == 0) {
+                if (argUsers.isEmpty()) {
                     argUsers.add("#global");
                 }
 
@@ -400,7 +400,7 @@ public class RollbackRestoreCommand {
 
                                             String users = "";
                                             for (String value : rollbackusers2) {
-                                                if (users.length() == 0) {
+                                                if (users.isEmpty()) {
                                                     users = "" + value + "";
                                                 }
                                                 else {

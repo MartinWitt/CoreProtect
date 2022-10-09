@@ -208,7 +208,7 @@ public final class EntityDeathListener extends Queue implements Listener {
         }
 
         EntityType entity_type = entity.getType();
-        if (e.length() == 0) {
+        if (e.isEmpty()) {
             // assume killed self
             if (!skip) {
                 if (!(entity instanceof Player) && entity_type.name() != null) {

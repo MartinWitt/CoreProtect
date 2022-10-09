@@ -35,7 +35,7 @@ class ContainerTransactionProcess {
                     if (current_chest == forceData || force_size > 0) { // This prevents client side chest sorting mods from messing things up.
                         ContainerLogger.log(preparedStmtContainer, preparedStmtItems, batchCount, user, type, inventory, location);
                         List<ItemStack[]> old = ConfigHandler.oldContainer.get(loggingChestId);
-                        if (old.size() == 0) {
+                        if (old.isEmpty()) {
                             ConfigHandler.oldContainer.remove(loggingChestId);
                             ConfigHandler.loggingChest.remove(loggingChestId);
                             ConfigHandler.transactingChest.remove(transactingChestId);

@@ -236,7 +236,7 @@ public class TabHandler implements TabCompleter {
                         for (int index = 0; index < completions.size(); index++) {
                             completions.set(index, filter + arg + completions.get(index));
                         }
-                        if (arg.length() == 0) {
+                        if (arg.isEmpty()) {
                             completions.remove(0);
                         }
                     }
